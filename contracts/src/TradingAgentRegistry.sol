@@ -130,7 +130,7 @@ contract TradingAgentRegistry {
         agents[agentId] = Agent({
             owner: msg.sender,
             ensNode: ensNode,
-            ensName: string(abi.encodePacked(ensLabel, ".yourdomain.eth")), // Adjust domain
+            ensName: string(abi.encodePacked(ensLabel, ".alatfi.eth")),
             strategy: strategy,
             createdAt: block.timestamp,
             exists: true

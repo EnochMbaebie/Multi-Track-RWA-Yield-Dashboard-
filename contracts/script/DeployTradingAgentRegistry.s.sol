@@ -28,7 +28,7 @@ contract DeployTradingAgentRegistry is Script {
     bytes32 constant DEFAULT_BASE_NODE = 0x0000000000000000000000000000000000000000000000000000000000000000;
 
     function run() external {
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        // No need to fetch private key from env; Forge injects it when using --private-key or default key
         
         // Get chain ID to determine Pyth address
         uint256 chainId = block.chainid;
@@ -65,7 +65,7 @@ contract DeployTradingAgentRegistry is Script {
         console.log("Base Node:");
         console.logBytes32(baseNode);
 
-        vm.startBroadcast(deployerPrivateKey);
+        vm.startBroadcast();
 
         TradingAgentRegistry registry = new TradingAgentRegistry(
             pythAddress,
